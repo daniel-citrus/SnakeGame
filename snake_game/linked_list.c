@@ -11,11 +11,12 @@
 #include "linked_list.h"
 
 // Create a new node and return its address
-node *newNode(int num)
+node *newNode(int x_coord, int y_coord)
 {
     node *ptr = malloc(sizeof(node));
 
-    ptr->i = num;
+    ptr->x = x_coord;
+    ptr->y = y_coord;
     ptr->next = NULL;
 
     return ptr;
