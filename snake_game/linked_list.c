@@ -22,8 +22,7 @@ node *newNode(int x, int y)
     return ptr;
 }
 
-
-// Add a node at the beginning of a linked list, returns the new head
+// Add a node at the beginning of a linked list
 void addFirst(node **head, int x, int y)
 {
     node *temp = newNode(x, y);
