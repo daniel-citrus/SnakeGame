@@ -16,16 +16,17 @@ struct snake
 {
 	node *head;
 	node *tail;
-	int speed; // Need to configure according to how fast the game window updates.
-	int snakeLength; // Not sure if I need this
+	int speed; 			// Need to configure according to how fast the game window updates.
+	int snakeLength; 	// Not sure if I need this
+	char *direction; 	// Track the snake's current direction, 0 if not moving.
 };
 
-snake *newSnake(int x, int y); // Generate new snake at coord
+snake *newSnake(int x, int y); 			// Generate new snake at coord
 
-// void changeDirections(); // Find a way to retrieve real time user input
-void displaySnake(); // Probably do not need this, I might let the "arena" do all of the displaying.
+void changeDirections(); 				// Find a way to retrieve real time user input
+void displaySnake(); 					// For testing
 void growSnake(snake *s, int x, int y); // Grow snake by 1
-void snakeSpeed(snake *s);
-void updateSnakeBody(); // Updates the snake's entire body after each game tick.
+void snakeSpeed(snake *s);				// Increase snake speed by s
+void updateSnakeBody(); 				// Updates the snake's entire body after each game tick.
 
 #endif /* SNAKE_H_ */

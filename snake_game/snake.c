@@ -31,7 +31,8 @@ snake *newSnake(int x, int y)
 
 //void changeDirections() // Find a way to retrieve real time user input
 
-void displaySnake(snake *s) // For testing
+// For testing
+void displaySnake(snake *s)
 {
 	if (s == NULL)
 	{
