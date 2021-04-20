@@ -18,10 +18,10 @@ struct snake
 	node *tail;
 	int speed; 			// Need to configure according to how fast the game window updates.
 	int snakeLength; 	// Not sure if I need this
-	char *direction; 	// Track the snake's current direction, 0 if not moving.
+	char *direction; 	// Track the snake's current direction: (L)eft, (R)ight, (U)p, (D)own, and 0 if not moving.
 };
 
-snake *newSnake(int x, int y); 			// Generate new snake at coord
+snake *newSnake(int x, int y); 			// Generate new snake at given coordinate
 
 void changeDirections(); 				// Find a way to retrieve real time user input
 void displaySnake(); 					// For testing

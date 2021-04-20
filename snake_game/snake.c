@@ -29,8 +29,12 @@ snake *newSnake(int x, int y)
 	return s;
 }
 
-//void changeDirections() // Find a way to retrieve real time user input
-
+/*
+void changeDirections() // Find a way to retrieve real time user input
+{
+	// Switch for LRUD
+}
+*/
 // For testing
 void displaySnake(snake *s)
 {
@@ -47,6 +51,7 @@ void displaySnake(snake *s)
 	printf("\n\n");
 }
 
+// Give snake a new body piece at location (x, y)
 void growSnake(snake *s, int x, int y)
 {
 	addLast(&(s->tail), x, y);
@@ -54,6 +59,7 @@ void growSnake(snake *s, int x, int y)
 	s->tail = s->tail->next;
 }
 
+// Update snake speed
 void snakeSpeed(snake *s)
 {
 	s->speed += 1;
