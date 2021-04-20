@@ -11,12 +11,12 @@
 #include "linked_list.h"
 
 // Create a new node and return its address
-node *newNode(int x_coord, int y_coord)
+node *newNode(int x, int y)
 {
     node *ptr = malloc(sizeof(node));
 
-    ptr->x = x_coord;
-    ptr->y = y_coord;
+    ptr->x = x;
+    ptr->y = y;
     ptr->next = NULL;
 
     return ptr;
@@ -24,19 +24,19 @@ node *newNode(int x_coord, int y_coord)
 
 
 // Add a node at the beginning of a linked list, returns the new head
-void addFirst(node **head, int num)
+void addFirst(node **head, int x, int y)
 {
-    node *temp = newNode(num);
+    node *temp = newNode(x, y);
     temp->next = *head;
     *head = temp;
 }
 
 // Add a node at the end of a linked list
-void addLast(node **head, int num)
+void addLast(node **head, int x, int y)
 {
     if (*head == NULL)
     {
-        *head = newNode(num);
+        *head = newNode(x, y);
     }
     else
     {
@@ -47,7 +47,7 @@ void addLast(node **head, int num)
             tmp = tmp->next;
         }
 
-        tmp->next = newNode(num);
+        tmp->next = newNode(x, y);
     }
 }
 
@@ -62,56 +62,11 @@ void readLinkedList(node *head)
 
     for (node *ptr = head; ptr != NULL; ptr = ptr->next)
     {
-        printf("%d", ptr->i);
+        printf("(%d, %d)", ptr->x, ptr->y);
         printf(" -> ");
     }
 
     printf("NULL\n");
-}
-
-// Delete the first instance of num in a linked list
-void deleteNode(node **head, int num)
-{
-    if(head == NULL)
-    {
-        printf("Linked List is empty.\n");
-
-        return;
-    }
-
-    node *h = *head;
-
-    // First node is a match
-    if (h->i == num)
-    {
-    	deleteFirstNode(head);
-
-        return;
-    }
-    // Search the rest of the linked list
-    else
-    {
-        node *before = h;
-        node *temp = before->next;
-
-        while (temp != NULL)
-        {
-            if (temp->i == num)
-            {
-                before->next = temp->next;
-                free(temp);
-
-                return;
-            }
-            else
-            {
-            	before = temp;
-            	temp = temp->next;
-            }
-        }
-    }
-
-    printf("Value does not exist in the Linked List.\n");
 }
 
 // Delete the first node of a linked list

@@ -20,11 +20,10 @@ struct node
     node *next;
 };
 
-node *newNode(int num);
-void addFirst(node **head, int num);
-void addLast(node **head, int num);
+node *newNode(int x_coord, int y_coord);
+void addFirst(node **head, int x_coord, int y_coord);
+void addLast(node **head, int x_coord, int y_coord);
 void deleteFirstNode(node **head);
-void deleteNode(node **head, int num);
 void destroyLinkedList (node **head);
 void readLinkedList(node *head);
 

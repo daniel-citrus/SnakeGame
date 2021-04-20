@@ -20,10 +20,12 @@ struct snake
 	int snakeLength = 0; // Not sure if I need this
 };
 
+snake *newSnake(int x, int y); // Generate new snake at coord
+
 // void changeDirections(); // Find a way to retrieve real time user input
-void displaySnake();
-void growSnake(int x); // Ideally, the snake should grow by one, but for future features, I will make it possible to grow the snake even more.
-void snakeSpeed(int x);
-void updateSnakeBody(); // Most likely used by changeDirections once user updates snake direction
+// void displaySnake(); // Probably do not need this, I might let the "arena" do all of the displaying.
+void growSnake(snake *s); // Grow snake by 1
+void snakeSpeed(snake *s);
+void updateSnakeBody(); // Updates the snake's entire body after each game tick.
 
 #endif /* SNAKE_H_ */
