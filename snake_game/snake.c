@@ -32,12 +32,12 @@ snake *newSnake(int x, int y)
 	return s;
 }
 
-/*
-void changeDirections() // Find a way to retrieve real time user input
+
+void changeDirections(snake *s) // Find a way to retrieve real time user input
 {
-	// Switch for LRUD
+	switch(s->)
 }
-*/
+
 
 // For testing
 void displaySnake(snake *s)
@@ -80,24 +80,13 @@ void snakeSpeed(snake *s)
 }
 
 /*
- * Update the snake's entire body after each game tick. Dependent on the snake's current
- * direction.
+ * Update the snake's entire body after each game tick. Dependent on the snake's
+ * current head direction.
  */
 void updateSnakeBody(snake *s)
 {
-	switch(s->direction)
-	{
-		case 'L':
-			break;
-		case 'R':
-			break;
-		case 'U':
-			break;
-		case 'D':
-			break;
-
-		// Error Checking
-		default:
-			printf("Invalid direction!.\n");
-	}
+	// Start from tail
+	// last = 2nd to last
+	// 2nd to last = 3rd to last
+	//
 }
