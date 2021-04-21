@@ -15,6 +15,9 @@ int main(void)
 	displaySnake(s);
 	growSnake(s, 2, 3);
 	displaySnake(s);
+	destroySnake(&s);
+	displaySnake(s);
+	destroySnake();
 }
 
 snake *newSnake(int x, int y)
@@ -35,6 +38,7 @@ void changeDirections() // Find a way to retrieve real time user input
 	// Switch for LRUD
 }
 */
+
 // For testing
 void displaySnake(snake *s)
 {
@@ -51,6 +55,16 @@ void displaySnake(snake *s)
 	printf("\n\n");
 }
 
+// Free all of the pieces of given snake
+void destroySnake(snake **s)
+{
+	destroyLinkedList(&((*s)->head));
+	(*s)->tail = NULL;
+
+	free(*s);
+	*s = NULL;
+}
+
 // Give snake a new body piece at location (x, y)
 void growSnake(snake *s, int x, int y)
 {
@@ -65,4 +79,25 @@ void snakeSpeed(snake *s)
 	s->speed += 1;
 }
 
-//void updateSnakeBody() // Updates the snake's entire body after each game tick.
+/*
+ * Update the snake's entire body after each game tick. Dependent on the snake's current
+ * direction.
+ */
+void updateSnakeBody(snake *s)
+{
+	switch(s->direction)
+	{
+		case 'L':
+			break;
+		case 'R':
+			break;
+		case 'U':
+			break;
+		case 'D':
+			break;
+
+		// Error Checking
+		default:
+			printf("Invalid direction!.\n");
+	}
+}
