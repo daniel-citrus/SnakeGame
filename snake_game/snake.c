@@ -6,7 +6,7 @@
  */
 #include <stdlib.h>
 #include "snake.h"
-
+/*
 int main(void)
 {
 	snake *s = newSnake(0, 1);
@@ -17,9 +17,8 @@ int main(void)
 	displaySnake(s);
 	destroySnake(&s);
 	displaySnake(s);
-	destroySnake();
 }
-
+*/
 snake *newSnake(int x, int y)
 {
 	snake *s = malloc(sizeof(snake));
@@ -33,10 +32,13 @@ snake *newSnake(int x, int y)
 }
 
 
+
+/*
 void changeDirections(snake *s) // Find a way to retrieve real time user input
 {
-	switch(s->)
+
 }
+*/
 
 
 // For testing
