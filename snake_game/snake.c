@@ -4,7 +4,7 @@
  *  Created on: Apr 20, 2021
  *      Author: dcalvo
  */
-#include <stdlib.h>
+
 #include "snake.h"
 /*
 int main(void)
@@ -24,9 +24,9 @@ snake *newSnake(int x, int y)
 	snake *s = malloc(sizeof(snake));
 
 	s->head = newNode(x, y);
-	s->tail = s->head;  				// A new snake only has one body "piece"
-	s->speed = 1;						// 1 for now
-	s->snakeLength = 1; 				// Always start at length 1
+	s->tail = s->head;
+	s->speed = 1;
+	s->snakeLength = 1; 				// Start at length 1
 
 	return s;
 }
@@ -41,7 +41,9 @@ void changeDirections(snake *s) // Find a way to retrieve real time user input
 */
 
 
-// For testing
+/*
+ * For testing
+ */
 void displaySnake(snake *s)
 {
 	if (s == NULL)
@@ -57,7 +59,9 @@ void displaySnake(snake *s)
 	printf("\n\n");
 }
 
-// Free all of the pieces of given snake
+/*
+ * Free all of the pieces of given snake
+ */
 void destroySnake(snake **s)
 {
 	destroyLinkedList(&((*s)->head));
@@ -67,7 +71,9 @@ void destroySnake(snake **s)
 	*s = NULL;
 }
 
-// Give snake a new body piece at location (x, y)
+/*
+ * Give snake a new body piece at location (x, y)
+ */
 void growSnake(snake *s, int x, int y)
 {
 	addLast(&(s->tail), x, y);
@@ -75,7 +81,9 @@ void growSnake(snake *s, int x, int y)
 	s->tail = s->tail->next;
 }
 
-// Update snake speed
+/*
+ * Increase snake speed by 1
+ */
 void snakeSpeed(snake *s)
 {
 	s->speed += 1;

@@ -5,12 +5,11 @@
  *      Author: Daniel Calvo
  */
 
-
-#include <stdio.h>
-#include <stdlib.h>
 #include "linked_list.h"
 
-// Create a new node and return its address
+/*
+ * Create a new node and return its address
+ */
 node *newNode(int x, int y)
 {
     node *ptr = malloc(sizeof(node));
@@ -22,7 +21,9 @@ node *newNode(int x, int y)
     return ptr;
 }
 
-// Add a node at the beginning of a linked list
+/*
+ * Add a node at the beginning of a linked list
+ */
 void addFirst(node **head, int x, int y)
 {
     node *temp = newNode(x, y);
@@ -30,7 +31,9 @@ void addFirst(node **head, int x, int y)
     *head = temp;
 }
 
-// Add a node at the end of a linked list
+/*
+ * Add a node at the end of a linked list
+ */
 void addLast(node **head, int x, int y)
 {
     if (*head == NULL)
@@ -50,7 +53,9 @@ void addLast(node **head, int x, int y)
     }
 }
 
-// Display values of a linked list
+/*
+ * Display values of a linked list
+ */
 void readLinkedList(node *head)
 {
 	if (head == NULL)
@@ -68,7 +73,9 @@ void readLinkedList(node *head)
     printf("NULL\n");
 }
 
-// Delete the first node of a linked list
+/*
+ * Delete the first node of a linked list
+ */
 void deleteFirstNode(node **head)
 {
     node *temp = *head;
@@ -76,7 +83,9 @@ void deleteFirstNode(node **head)
     free(temp);
 }
 
-// Free a linked list
+/*
+ * Free a linked list
+ */
 void destroyLinkedList (node **head)
 {
     if (*head == NULL)
