@@ -5,7 +5,7 @@
  *      Author: dcalvo
  */
 
-#include "snake.h"
+#include "headers/snake.h"
 /*
 int main(void)
 {

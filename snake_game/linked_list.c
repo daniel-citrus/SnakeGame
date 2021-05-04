@@ -5,7 +5,7 @@
  *      Author: Daniel Calvo
  */
 
-#include "linked_list.h"
+#include "headers/linked_list.h"
 
 /*
  * Create a new node and return its address

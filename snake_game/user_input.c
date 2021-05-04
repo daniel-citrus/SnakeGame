@@ -3,17 +3,18 @@
  *
  *  Created on: Apr 22, 2021
  *      Author: dcalvo
+ * Description: Returns the ASCII Decimal value of a user's key press.
  */
 
-#include "user_input.h"
+#include "headers/user_input.h"
 
-int main()
+int get_user_input()
 {
     int ch;
 
     do
     {
-        ch = getch();
+        return getch();
 
         switch(ch)
         {
@@ -40,4 +41,6 @@ int main()
     while(ch != KEY_SPACE);
 
     printf("...\nTerminated.");
+
+    return 0;
 }
