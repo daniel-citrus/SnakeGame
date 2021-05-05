@@ -6,6 +6,8 @@
  */
 
 #include "headers/snake.h"
+#include "headers/user_input.h"
+
 /*
 int main(void)
 {
@@ -17,8 +19,11 @@ int main(void)
 	displaySnake(s);
 	destroySnake(&s);
 	displaySnake(s);
+
+	return get_user_input();
 }
 */
+
 snake *newSnake(int x, int y)
 {
 	snake *s = malloc(sizeof(snake));

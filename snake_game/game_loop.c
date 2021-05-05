@@ -15,6 +15,7 @@
 *    Code version: N/A
 *    Availability: https://dewitters.com/dewitters-gameloop/
 */
+
 int main(void)
 {
 	const int TICKS_PER_SECOND = 50;

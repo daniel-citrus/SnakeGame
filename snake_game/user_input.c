@@ -7,6 +7,7 @@
  */
 
 #include "headers/user_input.h"
+#include "headers/general.h"
 
 int get_user_input()
 {
@@ -14,7 +15,7 @@ int get_user_input()
 
     do
     {
-        return getch();
+        ch =  getch();
 
         switch(ch)
         {
