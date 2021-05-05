@@ -5,8 +5,7 @@
  *      Author: dcalvo
  */
 
-#include "headers/general.h"
-#include "headers/game_loop.h"
+#include "game_loop.h"
 
 /*
 *    Title: Constant Game Speed with Maximum FPS
@@ -15,12 +14,15 @@
 *    Code version: N/A
 *    Availability: https://dewitters.com/dewitters-gameloop/
 */
-int main(void)
-{
-	const int TICKS_PER_SECOND = 50;
-	const int SKIP_TICKS = 1000 / TICKS_PER_SECOND;
-	const int MAX_FRAMESKIP = 10;
 
+#define CONSTANT 1000
+
+const int TICKS_PER_SECOND = 50;
+int SKIP_TICKS = CONSTANT / TICKS_PER_SECOND;
+const int MAX_FRAMESKIP = 10;
+
+int main()
+{
 	DWORD next_game_tick = GetTickCount();
 	int loops;
 
@@ -33,7 +35,6 @@ int main(void)
 
 		while(GetTickCount() > next_game_tick && loops < MAX_FRAMESKIP)
 		{
-
 			//update_game();
 
 			next_game_tick += SKIP_TICKS;
@@ -41,7 +42,6 @@ int main(void)
 		}
 
 		//display_game();
-		printf("0000000000000000000000000000000000000000\n");
 	}
 
 }

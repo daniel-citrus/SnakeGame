@@ -8,6 +8,8 @@
 #ifndef USER_INPUT_H_
 #define USER_INPUT_H_
 
+#include <stdio.h>
+#include <stdlib.h>
 #include <conio.h>
 
 #define ESC 27
@@ -17,5 +19,5 @@
 #define KEY_RIGHT 77
 #define KEY_SPACE 32
 
-int get_user_input();
+
 #endif /* USER_INPUT_H_ */
