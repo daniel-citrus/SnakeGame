@@ -28,6 +28,6 @@ void displaySnake(); 						// For testing
 void destroySnake(snake **s);				// Free all of the snake pieces
 void growSnake(snake *s, int x, int y); 	// Grow snake by 1
 void snakeSpeed(snake *s);					// Increase snake speed by s
-void updateSnakeBody(snake *s); 			// Updates the snake's entire body after each game tick.
+void updateSnakeBody(node *s, int x, int y); // Updates the snake body
 
 #endif /* SNAKE_H_ */

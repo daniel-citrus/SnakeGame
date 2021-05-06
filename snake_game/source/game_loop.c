@@ -5,9 +5,9 @@
  *      Author: dcalvo
  */
 
-#include "headers/general.h"
-#include "headers/game_loop.h"
-#include "headers/user_input.h"
+#include "../headers/general.h"
+#include "../headers/game_loop.h"
+#include "../headers/user_input.h"
 
 /*
 *    Title: Constant Game Speed with Maximum FPS
@@ -17,6 +17,7 @@
 *    Availability: https://dewitters.com/dewitters-gameloop/
 */
 
+/*
 int main(void)
 {
 	const int TICKS_PER_SECOND = 50;
@@ -45,5 +46,5 @@ int main(void)
 		//display_game();
 		printf("------------------\n");
 	}
-
 }
+*/

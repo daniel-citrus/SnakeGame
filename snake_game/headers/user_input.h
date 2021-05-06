@@ -8,8 +8,6 @@
 #ifndef USER_INPUT_H_
 #define USER_INPUT_H_
 
-#include <conio.h>
-
 #define ESC 27
 #define KEY_UP 72
 #define KEY_DOWN 80

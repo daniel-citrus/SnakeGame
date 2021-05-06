@@ -6,16 +6,16 @@
  * Description: Returns the ASCII Decimal value of a user's key press.
  */
 
-#include "headers/user_input.h"
-#include "headers/general.h"
+#include "../headers/user_input.h"
+#include "../headers/general.h"
 
+/*
 int get_user_input()
 {
     int ch;
-/*
+
     do
     {
-    */
 	ch =  getch();
 
 	switch(ch)
@@ -39,11 +39,11 @@ int get_user_input()
 			printf("Space.\n");
 			break;
 	}
-/*
     }
     while(ch != KEY_SPACE);
 
     printf("...\nTerminated.");
-*/
+
     return 0;
 }
+*/
