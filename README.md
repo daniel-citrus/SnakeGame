@@ -8,4 +8,4 @@ A personal rendition of the original snake game. Inspired by Harvard's CS50x.
   ![image](https://user-images.githubusercontent.com/56971161/116749477-dacd6280-a9b5-11eb-949f-b446b3255688.png)  
   
 05/5/2021 New arena and snake movement:  
-  ![]https://gyazo.com/257cd6934a3d632a93a4aea25b93013d
+  ![](https://gyazo.com/257cd6934a3d632a93a4aea25b93013d)
