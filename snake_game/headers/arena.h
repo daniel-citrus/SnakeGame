@@ -11,7 +11,7 @@
 #include "../headers/snake.h"
 
 #define height 20
-#define width 20
+#define width 60
 
 char Arena[height][width];
 

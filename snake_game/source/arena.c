@@ -10,29 +10,33 @@
 
 int main(void)
 {
+	int input;
+
 	create_arena();
 
-	char ch;
 	snake *s = newSnake(10,5);
 	growSnake(s, 11,5);
 	growSnake(s, 11,6);
 	growSnake(s, 12,6);
 	growSnake(s, 13,6);
 
-	update_arena(s);
-	system("cls");
-	display_arena();
-
 	int x, y;
 
 	do
 	{
+		/*
 		x = s->head->x;
 		y = s->head->y;
+		*/
+		input =  getch();
 
-		ch =  getch();
-
-		switch(ch)
+		if (input != -1)
+			{
+				printf("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
+				system("Pause");
+			}
+/*
+		switch(input)
 		{
 			case KEY_UP:
 				updateSnakeBody(s->head, x - 1, y);
@@ -49,13 +53,12 @@ int main(void)
 			case KEY_SPACE:
 				break;
 		}
+*/
+		//update_arena(s);
+		//clear();
+		//display_arena();
 
-		create_arena();
-		update_arena(s);
-		system("cls");
-		display_arena();
-
-	}while(ch != KEY_SPACE);
+	}while(input != KEY_SPACE);
 }
 
 /*
