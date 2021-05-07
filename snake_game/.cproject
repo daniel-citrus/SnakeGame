@@ -87,7 +87,7 @@
 									<listOptionValue builtIn="false" value="&quot;C:\MinGW\include\ncurses&quot;"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.link.option.libs.1756811503" name="Libraries (-l)" superClass="gnu.c.link.option.libs" useByScannerDiscovery="false" valueType="libs">
-									<listOptionValue builtIn="false" value="curses"/>
+									<listOptionValue builtIn="false" value="ncurses"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.924003498" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>

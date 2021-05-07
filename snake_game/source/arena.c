@@ -7,6 +7,7 @@
 
 #include "../headers/arena.h"
 #include "../headers/user_input.h"
+#include <ncurses.h>
 
 int main(void)
 {
@@ -24,18 +25,17 @@ int main(void)
 
 	do
 	{
-		/*
+
 		x = s->head->x;
 		y = s->head->y;
-		*/
+
 		input =  getch();
 
 		if (input != -1)
 			{
 				printf("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
-				system("Pause");
 			}
-/*
+
 		switch(input)
 		{
 			case KEY_UP:
@@ -53,10 +53,10 @@ int main(void)
 			case KEY_SPACE:
 				break;
 		}
-*/
-		//update_arena(s);
-		//clear();
-		//display_arena();
+
+		update_arena(s);
+		clear();
+		display_arena();
 
 	}while(input != KEY_SPACE);
 }
