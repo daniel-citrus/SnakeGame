@@ -7,7 +7,7 @@
 
 #include "../headers/arena.h"
 #include "../headers/user_input.h"
-#include <ncurses.h>
+#include <ncurses/curses.h>
 
 int main(void)
 {
@@ -67,6 +67,7 @@ int main(void)
 		update_arena(s);
 		display_arena();
 		system("Pause");
+		clear();
 		create_arena();
 	}while(input != KEY_SPACE);
 }
