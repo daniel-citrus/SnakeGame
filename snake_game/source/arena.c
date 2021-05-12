@@ -7,12 +7,12 @@
 
 #include "../headers/arena.h"
 #include "../headers/user_input.h"
-#include <curses.h>
+#include <ncurses.h>
 
 int main(void)
 {
 	initscr();
-
+	refresh();
 	create_arena();
 
 	snake *s = newSnake(11, 6,'r');
@@ -22,6 +22,7 @@ int main(void)
 
 	int x, y, input;
 	int *d = &(s->direction);
+	char c;
 
 	do
 	{
@@ -29,7 +30,8 @@ int main(void)
 		x = s->head->x;
 		y = s->head->y;
 
-		input = getch();
+		c = getch();
+		input = (int) c;
 
 		if (input == -1)
 		{
@@ -65,7 +67,6 @@ int main(void)
 		update_arena(s);
 		display_arena();
 		system("Pause");
-		clear();
 		create_arena();
 	}while(input != KEY_SPACE);
 }
