@@ -24,7 +24,7 @@ int main(void)
 }
 */
 
-snake *newSnake(int x, int y)
+snake *newSnake(int x, int y, char d)
 {
 	snake *s = malloc(sizeof(snake));
 
@@ -32,6 +32,7 @@ snake *newSnake(int x, int y)
 	s->tail = s->head;
 	s->speed = 1;
 	s->snakeLength = 1;
+	s->direction = d;
 
 	return s;
 }

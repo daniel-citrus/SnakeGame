@@ -7,21 +7,21 @@
 
 #include "../headers/arena.h"
 #include "../headers/user_input.h"
-#include <ncurses.h>
+#include <curses.h>
 
 int main(void)
 {
-	int input;
+	initscr();
 
 	create_arena();
 
-	snake *s = newSnake(10,5);
+	snake *s = newSnake(11, 6,'r');
 	growSnake(s, 11,5);
-	growSnake(s, 11,6);
-	growSnake(s, 12,6);
-	growSnake(s, 13,6);
+	growSnake(s, 11,4);
+	growSnake(s, 11,3);
 
-	int x, y;
+	int x, y, input;
+	int *d = &(s->direction);
 
 	do
 	{
@@ -29,35 +29,44 @@ int main(void)
 		x = s->head->x;
 		y = s->head->y;
 
-		input =  getch();
+		input = getch();
 
-		if (input != -1)
-			{
-				printf("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
-			}
+		if (input == -1)
+		{
+			input = s->direction;
+		}
 
 		switch(input)
 		{
 			case KEY_UP:
 				updateSnakeBody(s->head, x - 1, y);
+				*d = KEY_UP;
 				break;
+
 			case KEY_DOWN:
 				updateSnakeBody(s->head, x + 1, y);
+				*d = KEY_DOWN;
 				break;
+
 			case KEY_LEFT:
 				updateSnakeBody(s->head, x, y - 1);
+				*d = KEY_LEFT;
 				break;
+
 			case KEY_RIGHT:
 				updateSnakeBody(s->head, x , y + 1);
+				*d = KEY_RIGHT;
 				break;
+
 			case KEY_SPACE:
 				break;
 		}
 
 		update_arena(s);
-		clear();
 		display_arena();
-
+		system("Pause");
+		clear();
+		create_arena();
 	}while(input != KEY_SPACE);
 }
 
