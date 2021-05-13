@@ -7,32 +7,32 @@
 
 #include "../headers/arena.h"
 #include "../headers/user_input.h"
-#include <ncurses/curses.h>
+#include <ncurses.h>
 
 int main(void)
 {
 	initscr();
-	refresh();
+	raw();
+
 	create_arena();
 
-	snake *s = newSnake(11, 6,'r');
+	snake *s = newSnake(11, 6, KEY_RIGHT);
 	growSnake(s, 11,5);
 	growSnake(s, 11,4);
 	growSnake(s, 11,3);
 
 	int x, y, input;
 	int *d = &(s->direction);
-	char c;
 
 	do
 	{
-
 		x = s->head->x;
 		y = s->head->y;
 
-		c = getch();
-		input = (int) c;
+		getch();
+		clear();
 
+		input = -1;
 		if (input == -1)
 		{
 			input = s->direction;
@@ -66,10 +66,12 @@ int main(void)
 
 		update_arena(s);
 		display_arena();
-		system("Pause");
-		clear();
 		create_arena();
 	}while(input != KEY_SPACE);
+
+	endwin();
+
+	return 0;
 }
 
 /*
@@ -113,9 +115,9 @@ void display_arena()
 	{
 		for (int j = 0; j < width; j++)
 		{
-			printf("%c", Arena[i][j]);
+			printw("%c", Arena[i][j]);
 		}
-		printf("\n");
+		printw("\n");
 	}
 }
 
