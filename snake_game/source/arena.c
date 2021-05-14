@@ -77,7 +77,7 @@ int main(void)
  * Generates the arena borders.
  * This can also serve as an area clear
  */
-void create_arena()
+void create_arena(void)
 {
 	// Fill borders, coordinates (i, j)
 	for (int i = 0; i < height; i++)
@@ -103,7 +103,7 @@ void create_arena()
 /*
  * Display the arena array
  */
-void display_arena()
+void display_arena(void)
 {
 	if (Arena == NULL)
 	{

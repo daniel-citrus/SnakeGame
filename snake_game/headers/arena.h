@@ -15,8 +15,8 @@
 
 char Arena[height][width];
 
-void create_arena();			// Initializes the arena by placing borders and empty spaces, this can also be used to clear the arena
-void display_arena();			// Outputs the arena
+void create_arena(void);			// Initializes the arena by placing borders and empty spaces, this can also be used to clear the arena
+void display_arena(void);			// Outputs the arena
 void update_arena(snake *s);	// Draws the snake into the arena
 
 #endif /* arena_H_ */

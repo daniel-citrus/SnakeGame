@@ -17,5 +17,5 @@
 */
 #define KEY_SPACE 32
 
-int get_user_input();
+int get_user_input(void);
 #endif /* USER_INPUT_H_ */

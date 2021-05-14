@@ -23,8 +23,8 @@ struct snake
 
 snake *newSnake(int x, int y, char d); 				// Generate new snake at given coordinate
 
-void changeDirections(); 					// Receive user input to change snake direction
-void displaySnake(); 						// For testing
+void changeDirections(void); 					// Receive user input to change snake direction
+void displaySnake(void); 						// For testing
 void destroySnake(snake **s);				// Free all of the snake pieces
 void growSnake(snake *s, int x, int y); 	// Grow snake by 1
 void snakeSpeed(snake *s);					// Increase snake speed by s

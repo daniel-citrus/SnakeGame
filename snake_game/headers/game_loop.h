@@ -14,7 +14,7 @@
 
 typedef unsigned long DWORD, *PDWORD, *LPDWORD;
 
-void display_game();
-void update_game();
+void display_game(void);
+void update_game(void);
 
 #endif /* GAME_LOOP_H_ */
