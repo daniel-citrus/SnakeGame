@@ -16,7 +16,7 @@ int main(void)
 
 	create_arena();
 
-	snake *s = newSnake(11, 6, KEY_RIGHT);
+	snake *s = newSnake(11, 6, 0405);
 	growSnake(s, 11,5);
 	growSnake(s, 11,4);
 	growSnake(s, 11,3);
@@ -29,11 +29,9 @@ int main(void)
 		x = s->head->x;
 		y = s->head->y;
 
-		getch();
-		clear();
+		input = getch();
 
-		input = -1;
-		if (input == -1)
+		if (input != -1)
 		{
 			input = s->direction;
 		}
@@ -63,9 +61,10 @@ int main(void)
 			case KEY_SPACE:
 				break;
 		}
-
 		update_arena(s);
+		clear();
 		display_arena();
+		refresh();
 		create_arena();
 	}while(input != KEY_SPACE);
 
