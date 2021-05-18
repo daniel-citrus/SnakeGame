@@ -13,7 +13,12 @@ int main(void)
 {
 	initscr();
 	raw();
+	noecho();
+	keypad(stdscr, TRUE);
+	halfdelay(1);
 
+
+	/*
 	create_arena();
 
 	snake *s = newSnake(11, 6, 0405);
@@ -67,10 +72,31 @@ int main(void)
 		refresh();
 		create_arena();
 	}while(input != KEY_SPACE);
+*/
+	int in;
+
+	do
+	{
+		in = getch();
+
+		if (in != ERR)
+		{
+			clear();
+			printw("Key pressed: ");
+			attron(A_BOLD);
+			printw("%d\n", in);
+			attroff(A_BOLD);
+		}
+		else
+		{
+			printf("Timeout.\n");
+		}
+	} while (in != ESC);
 
 	endwin();
 
 	return 0;
+
 }
 
 /*
