@@ -7,96 +7,75 @@
 
 #include "../headers/arena.h"
 #include "../headers/user_input.h"
-#include <ncurses.h>
+#include <curses.h>
 
 int main(void)
 {
-	initscr();
-	raw();
-	noecho();
-	keypad(stdscr, TRUE);
-	halfdelay(1);
+    initscr();
+    raw();
+    timeout(130);
+    noecho();
+    keypad(stdscr, TRUE);
 
+    create_arena();
 
-	/*
-	create_arena();
+    snake *s = newSnake(11, 6, 0405);
+    growSnake(s, 11,5);
+    growSnake(s, 11,4);
+    growSnake(s, 11,3);
 
-	snake *s = newSnake(11, 6, 0405);
-	growSnake(s, 11,5);
-	growSnake(s, 11,4);
-	growSnake(s, 11,3);
+    int x, y, input;
+    int *d = &(s->direction);
 
-	int x, y, input;
-	int *d = &(s->direction);
+    do
+    {
+        x = s->head->x;
+        y = s->head->y;
 
-	do
-	{
-		x = s->head->x;
-		y = s->head->y;
+        input = getch();
 
-		input = getch();
+        if (input != ERR)
+        {
+            s->direction = input;
+            clear();
+        }
 
-		if (input != -1)
-		{
-			input = s->direction;
-		}
+        switch(input)
+        {
+            case KEY_UP:
+                updateSnakeBody(s->head, x - 1, y);
+                *d = KEY_UP;
+                break;
 
-		switch(input)
-		{
-			case KEY_UP:
-				updateSnakeBody(s->head, x - 1, y);
-				*d = KEY_UP;
-				break;
+            case KEY_DOWN:
+                updateSnakeBody(s->head, x + 1, y);
+                *d = KEY_DOWN;
+                break;
 
-			case KEY_DOWN:
-				updateSnakeBody(s->head, x + 1, y);
-				*d = KEY_DOWN;
-				break;
+            case KEY_LEFT:
+                updateSnakeBody(s->head, x, y - 1);
+                *d = KEY_LEFT;
+                break;
 
-			case KEY_LEFT:
-				updateSnakeBody(s->head, x, y - 1);
-				*d = KEY_LEFT;
-				break;
+            case KEY_RIGHT:
+                updateSnakeBody(s->head, x , y + 1);
+                *d = KEY_RIGHT;
+                break;
 
-			case KEY_RIGHT:
-				updateSnakeBody(s->head, x , y + 1);
-				*d = KEY_RIGHT;
-				break;
+            case ERR:
+                printw("Timeout\n");
+                break;
+        }
 
-			case KEY_SPACE:
-				break;
-		}
-		update_arena(s);
-		clear();
-		display_arena();
-		refresh();
-		create_arena();
-	}while(input != KEY_SPACE);
-*/
-	int in;
+        //update_arena(s);
+        //clear();
+        //display_arena();
+        //create_arena();
+    }while(input != KEY_SPACE);
 
-	do
-	{
-		in = getch();
+    endwin();
 
-		if (in != ERR)
-		{
-			clear();
-			printw("Key pressed: ");
-			attron(A_BOLD);
-			printw("%d\n", in);
-			attroff(A_BOLD);
-		}
-		else
-		{
-			printf("Timeout.\n");
-		}
-	} while (in != ESC);
-
-	endwin();
-
-	return 0;
-
+    return 0;
 }
 
 /*
@@ -105,25 +84,25 @@ int main(void)
  */
 void create_arena(void)
 {
-	// Fill borders, coordinates (i, j)
-	for (int i = 0; i < height; i++)
-	{
-		for (int j = 0; j < width; j++)
-		{
-			if (i == 0 || i == (height - 1))
-			{
-				Arena[i][j] = '-';
-			}
-			else if (j == 0 || j == (width - 1))
-			{
-				Arena[i][j] = '|';
-			}
-			else
-			{
-				Arena[i][j] = ' ';
-			}
-		}
-	}
+    // Fill borders, coordinates (i, j)
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            if (i == 0 || i == (height - 1))
+            {
+                Arena[i][j] = '-';
+            }
+            else if (j == 0 || j == (width - 1))
+            {
+                Arena[i][j] = '|';
+            }
+            else
+            {
+                Arena[i][j] = ' ';
+            }
+        }
+    }
 }
 
 /*
@@ -131,19 +110,19 @@ void create_arena(void)
  */
 void display_arena(void)
 {
-	if (Arena == NULL)
-	{
-		return;
-	}
-	// Fill borders, coordinates (i, j)
-	for (int i = 0; i < height; i++)
-	{
-		for (int j = 0; j < width; j++)
-		{
-			printw("%c", Arena[i][j]);
-		}
-		printw("\n");
-	}
+    if (Arena == NULL)
+    {
+        return;
+    }
+    // Fill borders, coordinates (i, j)
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            printw("%c", Arena[i][j]);
+        }
+        printw("\n");
+    }
 }
 
 /*
@@ -151,19 +130,19 @@ void display_arena(void)
  */
 void update_arena(snake *s)
 {
-	node *p = s->head;
+    node *p = s->head;
 
-	int x;
-	int y;
+    int x;
+    int y;
 
-	while (p != NULL)
-	{
-		x = p->x;
-		y = p->y;
+    while (p != NULL)
+    {
+        x = p->x;
+        y = p->y;
 
-		Arena[x][y] = '*';
+        Arena[x][y] = '*';
 
-		p = p->next;
-	}
+        p = p->next;
+    }
 }
 
