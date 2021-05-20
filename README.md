@@ -10,5 +10,5 @@ User input can now be received:
 New arena and snake movement (no movement when no input):  
   ![](https://i.gyazo.com/257cd6934a3d632a93a4aea25b93013d.gif)
 
-Addition of the Curses Library (continues to move when no input):
+Addition of the Curses Library (continues to move when no input):  
   ![](https://i.gyazo.com/aaf138ec6463615af6cb9418bf5bc426.gif)
