@@ -10,7 +10,7 @@
 /*
  * Create a new node and return its address
  */
-node *newNode(int x, int y)
+node *new_node(int x, int y)
 {
     node *ptr = malloc(sizeof(node));
 
@@ -24,9 +24,9 @@ node *newNode(int x, int y)
 /*
  * Add a node at the beginning of a linked list
  */
-void addFirst(node **head, int x, int y)
+void add_first(node **head, int x, int y)
 {
-    node *temp = newNode(x, y);
+    node *temp = new_node(x, y);
     temp->next = *head;
     *head = temp;
 }
@@ -34,11 +34,11 @@ void addFirst(node **head, int x, int y)
 /*
  * Add a node at the end of a linked list
  */
-void addLast(node **head, int x, int y)
+void add_last(node **head, int x, int y)
 {
     if (*head == NULL)
     {
-        *head = newNode(x, y);
+        *head = new_node(x, y);
     }
     else
     {
@@ -49,14 +49,14 @@ void addLast(node **head, int x, int y)
             tmp = tmp->next;
         }
 
-        tmp->next = newNode(x, y);
+        tmp->next = new_node(x, y);
     }
 }
 
 /*
  * Display values of a linked list
  */
-void readLinkedList(node *head)
+void read_linked_list(node *head)
 {
     if (head == NULL)
     {
@@ -86,14 +86,14 @@ void deleteFirstNode(node **head)
 /*
  * Free a linked list
  */
-void destroyLinkedList (node **head)
+void destroy_linked_list (node **head)
 {
     if (*head == NULL)
     {
         return;
     }
 
-    destroyLinkedList(&((*head)->next));
+    destroy_linked_list(&((*head)->next));
 
     free(*head);
 

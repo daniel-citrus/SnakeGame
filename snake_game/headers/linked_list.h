@@ -23,11 +23,11 @@ struct node
     node *next;
 };
 
-node *newNode(int x_coord, int y_coord);
-void addFirst(node **head, int x_coord, int y_coord);
-void addLast(node **head, int x_coord, int y_coord);
-void deleteFirstNode(node **head);
-void destroyLinkedList (node **head);
-void readLinkedList(node *head);
+node *new_node(int x_coord, int y_coord);
+void add_first(node **head, int x_coord, int y_coord);
+void add_last(node **head, int x_coord, int y_coord);
+void delete_first_node(node **head);
+void destroy_linked_list (node **head);
+void read_linked_list(node *head);
 
 #endif /* LINKED_LIST_H_ */

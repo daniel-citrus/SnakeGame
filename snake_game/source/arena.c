@@ -6,7 +6,6 @@
  */
 
 #include "../headers/arena.h"
-#include "../headers/user_input.h"
 #include "../headers/general.h"
 
 /*

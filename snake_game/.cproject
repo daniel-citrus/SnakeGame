@@ -130,4 +130,5 @@
 			<resource resourceType="PROJECT" workspacePath="/snake_game"/>
 		</configuration>
 	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 </cproject>

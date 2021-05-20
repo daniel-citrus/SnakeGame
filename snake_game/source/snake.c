@@ -5,15 +5,14 @@
  *      Author: dcalvo
  */
 
-#include "../headers/user_input.h"
 #include "../headers/snake.h"
 #include "../headers/general.h"
 
-snake *newSnake(int x, int y, char d)
+snake *new_snake(int x, int y, char d)
 {
     snake *s = malloc(sizeof(snake));
 
-    s->head = newNode(x, y);
+    s->head = new_node(x, y);
     s->tail = s->head;
     s->snakeLength = 1;
     s->direction = d;
@@ -21,6 +20,22 @@ snake *newSnake(int x, int y, char d)
     return s;
 }
 
+bool same_direction(snake *s, int input)
+{
+    if (s->direction == input)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+/*
+ * Update the snake's direction and move the snake's entire body
+ * forward in that direction by 1 array position
+ */
 void change_snake_direction(snake *s, int d)
 {
     int x, y;
@@ -58,7 +73,7 @@ void change_snake_direction(snake *s, int d)
  */
 void destroy_snake(snake **s)
 {
-    destroyLinkedList(&((*s)->head));
+    destroy_linked_list(&((*s)->head));
     (*s)->tail = NULL;
 
     free(*s);
@@ -70,7 +85,7 @@ void destroy_snake(snake **s)
  */
 void grow_snake(snake *s, int x, int y)
 {
-    addLast(&(s->tail), x, y);
+    add_last(&(s->tail), x, y);
     s->snakeLength += 1;
     s->tail = s->tail->next;
 }
