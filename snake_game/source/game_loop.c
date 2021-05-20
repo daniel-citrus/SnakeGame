@@ -8,43 +8,45 @@
 #include "../headers/general.h"
 #include "../headers/game_loop.h"
 #include "../headers/user_input.h"
+#include "../headers/arena.h"
 
-/*
-*    Title: Constant Game Speed with Maximum FPS
-*    Author: Koen Witters
-*    Date: 4/30/2021
-*    Code version: N/A
-*    Availability: https://dewitters.com/dewitters-gameloop/
-*/
-
-/*
 int main(void)
 {
-	const int TICKS_PER_SECOND = 50;
-	const int SKIP_TICKS = 1000 / TICKS_PER_SECOND;
-	const int MAX_FRAMESKIP = 5;
+    initscr();
+    raw();
+    timeout(150);
+    noecho();
+    keypad( stdscr, TRUE);
 
-	DWORD next_game_tick = GetTickCount();
-	int loops;
+    create_arena();
 
-	bool game_is_running = true;
+    snake *s = newSnake(11, 6, KEY_RIGHT);
+    grow_snake(s, 11,5);
+    grow_snake(s, 11,4);
+    grow_snake(s, 11,3);
 
-	while(game_is_running)
-	{
+    int input;
 
-		loops = 0;
+    do
+    {
+        input = getch();
+        clear();
+        if (input != ERR)
+        {
+            change_snake_direction(s, input);
+        }
+        else
+        {
+            snake_forward(s);
+        }
 
-		while(GetTickCount() > next_game_tick && loops < MAX_FRAMESKIP)
-		{
-			get_user_input();
-			//update_game();
+        update_arena(s);
+        display_arena();
+        create_arena();
+    }while(input != KEY_SPACE);
 
-			next_game_tick += SKIP_TICKS;
-			loops++;
-		}
+    destroy_snake(&s);
+    endwin();
 
-		//display_game();
-		printf("------------------\n");
-	}
+    return 0;
 }
-*/

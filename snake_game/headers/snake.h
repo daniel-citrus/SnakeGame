@@ -14,20 +14,18 @@ typedef struct snake snake;
 
 struct snake
 {
-	node *head;
-	node *tail;
-	int speed; 			// Need to configure according to how fast the game window updates.
-	int snakeLength; 	// Not sure if I need this (maybe for score)
-	int direction; 	// Track the snake head's current direction
+    node *head;
+    node *tail;
+    int snakeLength;       // Not sure if I need this (maybe for score)
+    int direction;         // Track the snake head's current direction
 };
 
-snake *newSnake(int x, int y, char d); 				// Generate new snake at given coordinate
+snake *newSnake(int x, int y, char d);              // Generate new snake at given coordinate
 
-void changeDirections(void); 					// Receive user input to change snake direction
-void displaySnake(snake *s); 						// For testing
-void destroySnake(snake **s);				// Free all of the snake pieces
-void growSnake(snake *s, int x, int y); 	// Grow snake by 1
-void snakeSpeed(snake *s);					// Increase snake speed by s
-void updateSnakeBody(node *s, int x, int y); // Updates the snake body
+void change_snake_direction(snake* s, int d);       // Receive user input to change snake direction
+void destroy_snake(snake **s);                      // Free all of the snake pieces
+void grow_snake(snake *s, int x, int y);            // Grow snake by 1
+void update_snake(node *s, int x, int y);           // Updates the snake body
+void snake_forward(snake *s);                       // Move snake head forward depending on current direction
 
 #endif /* SNAKE_H_ */

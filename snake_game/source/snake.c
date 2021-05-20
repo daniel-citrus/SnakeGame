@@ -7,112 +7,98 @@
 
 #include "../headers/user_input.h"
 #include "../headers/snake.h"
-
-/*
-int main(void)
-{
-	snake *s = newSnake(0, 1);
-	displaySnake(s);
-	growSnake(s, 1, 2);
-	displaySnake(s);
-	growSnake(s, 2, 3);
-	displaySnake(s);
-	destroySnake(&s);
-	displaySnake(s);
-
-	return get_user_input();
-}
-*/
+#include "../headers/general.h"
 
 snake *newSnake(int x, int y, char d)
 {
-	snake *s = malloc(sizeof(snake));
+    snake *s = malloc(sizeof(snake));
 
-	s->head = newNode(x, y);
-	s->tail = s->head;
-	s->speed = 1;
-	s->snakeLength = 1;
-	s->direction = d;
+    s->head = newNode(x, y);
+    s->tail = s->head;
+    s->snakeLength = 1;
+    s->direction = d;
 
-	return s;
+    return s;
 }
 
-/*
-void changeDirections(snake *s, int c)
+void change_snake_direction(snake *s, int d)
 {
-	switch(c)
-	{
-		case KEY_UP:
-		case KEY_DOWN:
-		case KEY_LEFT:
-		case KEY_RIGHT:
-	}
-}
-*/
+    int x, y;
+    int *snakeDir = &(s->direction);
 
-/*
- * For testing
- */
-void displaySnake(snake *s)
-{
-	if (s == NULL)
-	{
-		printf("Snake does not exist.\n");
+    x = s->head->x;
+    y = s->head->y;
 
-		return;
-	}
+    switch(d)
+    {
+        case KEY_UP:
+            update_snake(s->head, x - 1, y);
+            *snakeDir = KEY_UP;
+            break;
 
-	readLinkedList(s->head);
-	printf("Head: (%d, %d)\n", s->head->x, s->head->y);
-	printf("Tail: (%d, %d)\n", s->tail->x, s->tail->y);
-	printf("\n\n");
+        case KEY_DOWN:
+            update_snake(s->head, x + 1, y);
+            *snakeDir = KEY_DOWN;
+            break;
+
+        case KEY_LEFT:
+            update_snake(s->head, x, y - 1);
+            *snakeDir = KEY_LEFT;
+            break;
+
+        case KEY_RIGHT:
+            update_snake(s->head, x , y + 1);
+            *snakeDir = KEY_RIGHT;
+            break;
+    }
 }
 
 /*
  * Free all of the pieces of given snake
  */
-void destroySnake(snake **s)
+void destroy_snake(snake **s)
 {
-	destroyLinkedList(&((*s)->head));
-	(*s)->tail = NULL;
+    destroyLinkedList(&((*s)->head));
+    (*s)->tail = NULL;
 
-	free(*s);
-	*s = NULL;
+    free(*s);
+    *s = NULL;
 }
 
 /*
  * Give snake a new body piece at location (x, y)
  */
-void growSnake(snake *s, int x, int y)
+void grow_snake(snake *s, int x, int y)
 {
-	addLast(&(s->tail), x, y);
-	s->snakeLength += 1;
-	s->tail = s->tail->next;
-}
-
-/*
- * Increase snake speed by 1
- */
-void snakeSpeed(snake *s)
-{
-	s->speed += 1;
+    addLast(&(s->tail), x, y);
+    s->snakeLength += 1;
+    s->tail = s->tail->next;
 }
 
 /*
  * Update the snake's entire body, starting with the head node to the tail.
  */
-void updateSnakeBody(node *s, int x, int y)
+void update_snake(node *s, int x, int y)
 {
-	// Start from tail
-	// last = 2nd to last
-	// 2nd to last = 3rd to last
-	if (s == NULL)
-	{
-		return;
-	}
+    if (s == NULL)
+    {
+        return;
+    }
 
-	updateSnakeBody(s->next, s->x, s->y);
+    update_snake(s->next, s->x, s->y);
 
-	s->x = x;
-	s->y = y;
+    s->x = x;
+    s->y = y;
+}
+
+/*
+ * Increment the snake's position by 1 in it's current direction
+ */
+void snake_forward(snake *s)
+{
+    {
+        int direction = s->direction;
+
+        change_snake_direction(s, direction);
+    }
 }

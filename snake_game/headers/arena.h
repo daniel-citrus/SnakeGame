@@ -10,13 +10,13 @@
 
 #include "../headers/snake.h"
 
-#define height 20
-#define width 60
+#define height 30
+#define width 115
 
 char Arena[height][width];
 
-void create_arena(void);			// Initializes the arena by placing borders and empty spaces, this can also be used to clear the arena
-void display_arena(void);			// Outputs the arena
-void update_arena(snake *s);	// Draws the snake into the arena
+void create_arena(void);            // Initializes the arena by placing borders and empty spaces, this can also be used to clear the arena
+void display_arena(void);           // Outputs the arena
+void update_arena(snake *s);        // Update the arena by adding the snake coordinates into the arena arrays
 
 #endif /* arena_H_ */

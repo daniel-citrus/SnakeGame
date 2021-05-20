@@ -58,11 +58,11 @@ void addLast(node **head, int x, int y)
  */
 void readLinkedList(node *head)
 {
-	if (head == NULL)
-	{
-		printf("There is no linked list.\n");
-		return;
-	}
+    if (head == NULL)
+    {
+        printf("There is no linked list.\n");
+        return;
+    }
 
     for (node *ptr = head; ptr != NULL; ptr = ptr->next)
     {
@@ -90,7 +90,7 @@ void destroyLinkedList (node **head)
 {
     if (*head == NULL)
     {
-    	return;
+        return;
     }
 
     destroyLinkedList(&((*head)->next));

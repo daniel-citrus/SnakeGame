@@ -7,76 +7,7 @@
 
 #include "../headers/arena.h"
 #include "../headers/user_input.h"
-#include <curses.h>
-
-int main(void)
-{
-    initscr();
-    raw();
-    timeout(130);
-    noecho();
-    keypad(stdscr, TRUE);
-
-    create_arena();
-
-    snake *s = newSnake(11, 6, 0405);
-    growSnake(s, 11,5);
-    growSnake(s, 11,4);
-    growSnake(s, 11,3);
-
-    int x, y, input;
-    int *d = &(s->direction);
-
-    do
-    {
-        x = s->head->x;
-        y = s->head->y;
-
-        input = getch();
-
-        if (input != ERR)
-        {
-            s->direction = input;
-            clear();
-        }
-
-        switch(input)
-        {
-            case KEY_UP:
-                updateSnakeBody(s->head, x - 1, y);
-                *d = KEY_UP;
-                break;
-
-            case KEY_DOWN:
-                updateSnakeBody(s->head, x + 1, y);
-                *d = KEY_DOWN;
-                break;
-
-            case KEY_LEFT:
-                updateSnakeBody(s->head, x, y - 1);
-                *d = KEY_LEFT;
-                break;
-
-            case KEY_RIGHT:
-                updateSnakeBody(s->head, x , y + 1);
-                *d = KEY_RIGHT;
-                break;
-
-            case ERR:
-                printw("Timeout\n");
-                break;
-        }
-
-        //update_arena(s);
-        //clear();
-        //display_arena();
-        //create_arena();
-    }while(input != KEY_SPACE);
-
-    endwin();
-
-    return 0;
-}
+#include "../headers/general.h"
 
 /*
  * Generates the arena borders.
@@ -114,7 +45,7 @@ void display_arena(void)
     {
         return;
     }
-    // Fill borders, coordinates (i, j)
+
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
