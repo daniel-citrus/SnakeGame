@@ -16,7 +16,6 @@ int main(void)
     int input;
 
     initialize_game();
-
     create_arena();
 
     snake *s = new_snake(11, 6, KEY_RIGHT);
