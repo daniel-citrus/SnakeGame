@@ -7,7 +7,7 @@ The first snake:
 User input can now be received:  
   ![image](https://user-images.githubusercontent.com/56971161/116749477-dacd6280-a9b5-11eb-949f-b446b3255688.png)  
   
-New arena and snake movement (no movement when no input):  
+New arena and snake movement (movement after each key-press):  
   ![](https://i.gyazo.com/257cd6934a3d632a93a4aea25b93013d.gif)
 
 Addition of the Curses Library (continues to move when no input):  
