@@ -12,3 +12,6 @@ New arena and snake movement (movement after each key-press):
 
 Addition of the Curses Library (continues to move when no input):  
   ![](https://i.gyazo.com/aaf138ec6463615af6cb9418bf5bc426.gif)
+
+Game can now be paused / snake cannot redirect into the opposite direction:  
+  ![](https://i.gyazo.com/c659a263532e68554ae4f5242f1330de.gif)
