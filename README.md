@@ -1,4 +1,4 @@
-# SnakeGame
+# Snake
 A personal rendition of the original snake game. Evolution below!
 
 The first snake:  
