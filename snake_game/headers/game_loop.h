@@ -10,10 +10,11 @@
 #ifndef GAME_LOOP_H_
 #define GAME_LOOP_H_
 
+#include <curses.h>
 #include <windows.h>
 #include "snake.h"
 
-#define DELAY 84
+#define DELAY 60
 
 typedef unsigned long DWORD, *PDWORD, *LPDWORD;
 

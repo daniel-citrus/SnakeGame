@@ -5,12 +5,10 @@
  *      Author: dcalvo
  */
 
-#include "../headers/general.h"
 #include "../headers/game_loop.h"
 #include "../headers/arena.h"
 #include "../headers/user_input.h"
-#include <curses.h>
-
+/*
 int main(void)
 {
     int input;
@@ -18,8 +16,7 @@ int main(void)
     initialize_game();
     create_arena();
 
-    snake *s = new_snake(11, 6, KEY_RIGHT);
-
+    snake *s = new_snake(screen_row / 2, screen_col / 2, KEY_RIGHT);
 
     while(true)
     {
@@ -35,6 +32,7 @@ int main(void)
         display_game();
     }
 }
+*/
 
 /*
  *  Update the screen
@@ -47,7 +45,7 @@ void display_game(void)
 }
 
 /*
- *  Call initialization functions
+ *  Call initialization functions, mainly for the curses library
  */
 void initialize_game(void)
 {
@@ -57,9 +55,17 @@ void initialize_game(void)
     keypad(stdscr, TRUE);
     timeout(DELAY);
 
+    // Get terminal dimensions
     getmaxyx(stdscr, screen_row, screen_col);
 }
 
+/*
+ * Pause the game
+ *
+ * This functions will prevent the curses timeout from activating for
+ * indefinite pause time. A message will pop-up on the center of the
+ * terminal. The game will resume once any key is pressed.
+ */
 void pause_game(void)
 {
     timeout(-1);

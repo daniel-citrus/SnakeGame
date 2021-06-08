@@ -8,12 +8,12 @@
 #ifndef arena_H_
 #define arena_H_
 
-#include "../headers/snake.h"
+#include "snake.h"
 
-#define height 30
-#define width 115
+#define A_HEIGHT 30
+#define A_WIDTH 118
 
-char Arena[height][width];
+char Arena[A_HEIGHT][A_WIDTH];
 
 void create_arena(void);            // Initializes the arena by placing borders and empty spaces, this can also be used to clear the arena
 void display_arena(void);           // Outputs the arena

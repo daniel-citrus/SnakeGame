@@ -3,10 +3,11 @@
  *
  *  Created on: May 5, 2021
  *      Author: dcalvo
+ * Description: Defines the game arena. Populates the arena with borders
+ *              and draws the snake as theg ame progresses.
  */
 
 #include "../headers/arena.h"
-#include "../headers/general.h"
 
 /*
  * Generates the arena borders.
@@ -15,15 +16,15 @@
 void create_arena(void)
 {
     // Fill borders, coordinates (i, j)
-    for (int i = 0; i < height; i++)
+    for (int i = 0; i < A_HEIGHT; i++)
     {
-        for (int j = 0; j < width; j++)
+        for (int j = 0; j < A_WIDTH; j++)
         {
-            if (i == 0 || i == (height - 1))
+            if (i == 0 || i == (A_HEIGHT - 1))
             {
                 Arena[i][j] = '-';
             }
-            else if (j == 0 || j == (width - 1))
+            else if (j == 0 || j == (A_WIDTH - 1))
             {
                 Arena[i][j] = '|';
             }
@@ -45,9 +46,9 @@ void display_arena(void)
         return;
     }
 
-    for (int i = 0; i < height; i++)
+    for (int i = 0; i < A_HEIGHT; i++)
     {
-        for (int j = 0; j < width; j++)
+        for (int j = 0; j < A_WIDTH; j++)
         {
             printw("%c", Arena[i][j]);
         }

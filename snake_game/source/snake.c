@@ -6,7 +6,6 @@
  */
 
 #include "../headers/snake.h"
-#include "../headers/general.h"
 
 snake *new_snake(int x, int y, char d)
 {
@@ -20,6 +19,11 @@ snake *new_snake(int x, int y, char d)
     return s;
 }
 
+/*
+ * Check if input is in the same direction as the snake's direction.
+ * This function prevents the snake from going faster if directional button
+ * is held.
+ */
 bool same_direction(snake *s, int input)
 {
     if (s->direction == input)
@@ -33,8 +37,9 @@ bool same_direction(snake *s, int input)
 }
 
 /*
- * Update the snake's direction and move the snake's entire body
- * forward in that direction by 1 array position
+ * Update the snake's direction and increment the snake's individual body coordinates
+ * according to the direction. This function also checks for invalid inputs (ie. User input is DOWN
+ * while snake is going UP) so they can be ignored.
  */
 void change_snake_direction(snake *s, int d)
 {
@@ -44,27 +49,56 @@ void change_snake_direction(snake *s, int d)
     x = s->head->x;
     y = s->head->y;
 
+
     switch(d)
     {
         case KEY_UP:
-            update_snake(s->head, x - 1, y);
-            *snakeDir = KEY_UP;
-            break;
+            if (*snakeDir == KEY_DOWN)
+            {
+                return;
+            }
+            else
+            {
+                update_snake(s->head, x - 1, y);
+                *snakeDir = KEY_UP;
+                break;
+            }
 
         case KEY_DOWN:
-            update_snake(s->head, x + 1, y);
-            *snakeDir = KEY_DOWN;
-            break;
+            if (*snakeDir == KEY_UP)
+            {
+                return;
+            }
+            else
+            {
+                update_snake(s->head, x + 1, y);
+                *snakeDir = KEY_DOWN;
+                break;
+            }
 
         case KEY_LEFT:
-            update_snake(s->head, x, y - 1);
-            *snakeDir = KEY_LEFT;
-            break;
+            if (*snakeDir == KEY_RIGHT)
+            {
+                return;
+            }
+            else
+            {
+                update_snake(s->head, x, y - 1);
+                *snakeDir = KEY_LEFT;
+                break;
+            }
 
         case KEY_RIGHT:
-            update_snake(s->head, x , y + 1);
-            *snakeDir = KEY_RIGHT;
-            break;
+            if (*snakeDir == KEY_LEFT)
+            {
+                return;
+            }
+            else
+            {
+                update_snake(s->head, x , y + 1);
+                *snakeDir = KEY_RIGHT;
+                break;
+            }
     }
 }
 
