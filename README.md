@@ -4,7 +4,7 @@ A personal rendition of the original snake game. Evolution below!
 The first snake:  
   ![image](https://user-images.githubusercontent.com/56971161/115440100-39c7f600-a1c4-11eb-8ef0-8f3e4b17caba.png)  
   
-User input can now be received:  
+User input can be received:  
   ![image](https://user-images.githubusercontent.com/56971161/116749477-dacd6280-a9b5-11eb-949f-b446b3255688.png)  
   
 New arena and snake movement (movement after each key-press):  
@@ -13,5 +13,5 @@ New arena and snake movement (movement after each key-press):
 Addition of the Curses Library (continues to move when no input):  
   ![](https://i.gyazo.com/aaf138ec6463615af6cb9418bf5bc426.gif)
 
-Game can now be paused / snake cannot redirect into the opposite direction:  
+Game can be paused / snake cannot redirect into the opposite direction:  
   ![](https://i.gyazo.com/c659a263532e68554ae4f5242f1330de.gif)
