@@ -25,7 +25,7 @@ struct snake
 snake *new_snake(int x, int y, char d);             // Generate new snake at given coordinate
 
 bool same_direction(snake *s, int input);           // Returns true if the input provided is in the same direction as the snake's current direction
-bool snake_on_apple(snake *s);            // Returns true if snake head is on top of an apple
+bool snake_on_apple(snake *s, apple *a);            // Returns true if snake head is on top of an apple
 
 void change_snake_direction(snake* s, int d);       // Receive user input to change snake direction
 void destroy_snake(snake **s);                      // Free all of the snake pieces

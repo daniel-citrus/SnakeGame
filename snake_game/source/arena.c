@@ -75,7 +75,9 @@ void update_arena(snake *s, apple *a)
 
         p = p->next;
     }
-
-    Arena[(int)a->x][(int)a->y] = '@';
+    if (a != NULL)
+    {
+        Arena[(int)a->x][(int)a->y] = '@';
+    }
 }
 

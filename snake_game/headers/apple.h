@@ -11,7 +11,7 @@
 #ifndef HEADERS_APPLE_H_
 #define HEADERS_APPLE_H_
 
-#include "arena.h"
+#include <stdbool.h>
 
 typedef struct apple apple;
 

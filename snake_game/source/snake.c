@@ -37,6 +37,27 @@ bool same_direction(snake *s, int input)
 }
 
 /*
+ * Returns true if snake head is on the same coordinates as the apple
+ */
+bool snake_on_apple(snake *s, apple *a)
+{
+    int snakeX = s->head->x;
+    int snakeY = s->head->y;
+
+    int appleX = a->x;
+    int appleY = a->y;
+
+    if (snakeX == appleX && snakeY == appleY)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+/*
  * Update the snake's direction and increment the snake's individual body coordinates
  * according to the direction. This function also checks for invalid inputs (ie. User input is DOWN
  * while snake is going UP) so they can be ignored.

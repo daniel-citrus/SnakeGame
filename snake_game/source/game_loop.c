@@ -18,7 +18,9 @@ int main(void)
 
     create_arena();
     snake *s = new_snake(screen_row / 2, screen_col / 2, KEY_RIGHT);
-    apple *a = generate_apple();
+    apple *a = NULL;
+    update_arena(s, a);
+    a = generate_apple();
     update_arena(s, a);
 
     while(true)

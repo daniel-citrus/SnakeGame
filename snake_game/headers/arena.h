@@ -18,6 +18,6 @@ char Arena[A_HEIGHT][A_WIDTH];
 
 void create_arena(void);                // Initializes the arena by placing borders and empty spaces, this can also be used to clear the arena
 void display_arena(void);               // Outputs the arena
-void update_arena(snake *s);  // Update the arena by adding the snake coordinates into the arena arrays
+void update_arena(snake *s, apple *a);  // Update the arena by adding the snake coordinates into the arena arrays
 
 #endif /* arena_H_ */
