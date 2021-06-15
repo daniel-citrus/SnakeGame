@@ -61,6 +61,11 @@ void display_arena(void)
  */
 void update_arena(snake *s, apple *a)
 {
+    if (s == NULL)
+    {
+        return;
+    }
+
     node *p = s->head;
 
     int x;
