@@ -59,7 +59,7 @@ void display_arena(void)
 /*
  * Draw the snake in the arena
  */
-void update_arena(snake *s)
+void update_arena(snake *s, apple *a)
 {
     node *p = s->head;
 
@@ -75,5 +75,7 @@ void update_arena(snake *s)
 
         p = p->next;
     }
+
+    Arena[(int)a->x][(int)a->y] = '@';
 }
 

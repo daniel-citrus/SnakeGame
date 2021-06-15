@@ -8,15 +8,18 @@
 #include "../headers/game_loop.h"
 #include "../headers/arena.h"
 #include "../headers/user_input.h"
+#include "../headers/apple.h"
 
 int main(void)
 {
     int input;
 
     initialize_game();
-    create_arena();
 
+    create_arena();
     snake *s = new_snake(screen_row / 2, screen_col / 2, KEY_RIGHT);
+    apple *a = generate_apple();
+    update_arena(s, a);
 
     while(true)
     {
@@ -27,7 +30,7 @@ int main(void)
             pause_game();
         }
 
-        update_game(input, s);
+        update_game(input, s, a);
 
         display_game();
     }
@@ -57,6 +60,7 @@ void initialize_game(void)
     // Get terminal dimensions
     getmaxyx(stdscr, screen_row, screen_col);
 
+
 }
 
 /*
@@ -68,24 +72,28 @@ void initialize_game(void)
  */
 void pause_game(void)
 {
+    // Disable timeout
     timeout(-1);
 
     char *message1 = "PAUSED";
-    char *message2 = "Press any button to continue";
+    char *message2 = "[Press any button to continue]";
     mvwprintw(stdscr, screen_row / 2, (screen_col - strlen(message1)) / 2, "%s\n", message1);
     mvwprintw(stdscr, (screen_row / 2) + 1, (screen_col - strlen(message2)) / 2, "%s\n", message2);
     refresh();
 
     getch();
+
+    // Enable timeout
     timeout(DELAY);
 
     return;
 }
 
 /*
- *  Receive user input then update the snake state and arena state
+ *  Receive user input then update the snake state and arena state.
+ *  Also, check if the snake head has collided with an apple.
  */
-void update_game(int input, snake *s)
+void update_game(int input, snake *s, apple *a)
 {
     create_arena();
 
@@ -98,7 +106,13 @@ void update_game(int input, snake *s)
         change_snake_direction(s, input);
     }
 
-    update_arena(s);
+    if (snake_on_apple(s, a))
+    {
+        grow_snake(s);
+        a = generate_apple();
+    }
+
+    update_arena(s, a);
 }
 
 

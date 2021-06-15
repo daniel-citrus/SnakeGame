@@ -23,6 +23,6 @@ int screen_row, screen_col;             // Stores dimensions of stdscr
 void display_game(void);                // Output the frame of the current game state
 void initialize_game(void);             // Call initialization functions
 void pause_game(void);                  // Pause game and wait for user input
-void update_game(int input, snake *s);  // Update game state
+void update_game(int input, snake *s, apple *a);  // Update game state
 
 #endif /* GAME_LOOP_H_ */

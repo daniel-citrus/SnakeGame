@@ -40,6 +40,8 @@ bool same_direction(snake *s, int input)
  * Update the snake's direction and increment the snake's individual body coordinates
  * according to the direction. This function also checks for invalid inputs (ie. User input is DOWN
  * while snake is going UP) so they can be ignored.
+ *
+ * @param d: The new direction for the snake
  */
 void change_snake_direction(snake *s, int d)
 {
@@ -115,11 +117,12 @@ void destroy_snake(snake **s)
 }
 
 /*
- * Give snake a new body piece at location (x, y)
+ * Give snake a new body piece on top of its tail.
+ * This will be corrected once the snake moves forward
  */
-void grow_snake(snake *s, int x, int y)
+void grow_snake(snake *s)
 {
-    add_last(&(s->tail), x, y);
+    add_last(&(s->tail), s->tail->x, s->tail->y);
     s->snakeLength += 1;
     s->tail = s->tail->next;
 }

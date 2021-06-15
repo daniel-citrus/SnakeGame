@@ -4,7 +4,8 @@
  *  Created on: Jun 15, 2021
  *      Author: dcalvo
  * Description: Header for all apple related functions and information.
- *              There should only be one apple at a time.
+ *              In traditional game rules, there is usually only 1 apple
+ *              present at a time.
  */
 
 #ifndef HEADERS_APPLE_H_
@@ -14,11 +15,15 @@
 
 typedef struct apple apple;
 
-apple *gala;
-
 struct apple {
     int x;
     int y;
 };
+
+apple *generate_apple();
+
+bool collides(apple *a);
+
+void destroy_apple(apple *a);
 
 #endif /* HEADERS_APPLE_H_ */
