@@ -1,28 +1,24 @@
 /*
  * apple.h
  *
- *  Created on: Jun 7, 2021
- *      Author: Daniel
+ *  Created on: Jun 15, 2021
+ *      Author: dcalvo
+ * Description: Header for all apple related functions and information.
+ *              There should only be one apple at a time.
  */
 
 #ifndef HEADERS_APPLE_H_
 #define HEADERS_APPLE_H_
 
-#include <stdlib.h>
-#include <time.h>
-#include "snake.h"
+#include "arena.h"
 
 typedef struct apple apple;
 
-struct apple
-{
+apple *gala;
+
+struct apple {
     int x;
     int y;
 };
-
-apple *generate_apple(void);
-
-void destroy_apple(apple *a);           // Free the apple
-void eaten(apple *a, snake *s);         // Generate another apple after being eaten?
 
 #endif /* HEADERS_APPLE_H_ */
