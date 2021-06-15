@@ -4,7 +4,7 @@
  *  Created on: Apr 20, 2021
  *      Author: dcalvo
  */
-
+#include <curses.h>
 #include "../headers/snake.h"
 
 snake *new_snake(int x, int y, char d)

@@ -8,7 +8,7 @@
 #include "../headers/game_loop.h"
 #include "../headers/arena.h"
 #include "../headers/user_input.h"
-/*
+
 int main(void)
 {
     int input;
@@ -32,7 +32,6 @@ int main(void)
         display_game();
     }
 }
-*/
 
 /*
  *  Update the screen
@@ -57,6 +56,7 @@ void initialize_game(void)
 
     // Get terminal dimensions
     getmaxyx(stdscr, screen_row, screen_col);
+
 }
 
 /*
