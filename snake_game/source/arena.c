@@ -22,11 +22,11 @@ void create_arena(void)
         {
             if (i == 0 || i == (A_HEIGHT - 1))
             {
-                Arena[i][j] = '-';
+                Arena[i][j] = 'D';
             }
             else if (j == 0 || j == (A_WIDTH - 1))
             {
-                Arena[i][j] = '|';
+                Arena[i][j] = 'D';
             }
             else
             {
