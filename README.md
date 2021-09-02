@@ -21,6 +21,6 @@
 > ![](https://i.gyazo.com/c659a263532e68554ae4f5242f1330de.gif)  
 > Added pause feature and further advanced snake movements. The snake will no longer be able to turn into itself (ie. snake going left cannot flip to the right).  
 
-### Fully functional apples have been created:  
+### Fully functional apple:
 > ![](https://i.gyazo.com/a57b3f992313b95af12c1c0f12123f3a.gif)
 > A single apple will spawn at random coordinates in the arena. The apple will always spawn two blocks from the arena border because it is sometimes difficult to perceive the distance between the snake and arena border.  
