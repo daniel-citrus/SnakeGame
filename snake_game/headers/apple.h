@@ -12,6 +12,7 @@
 #define HEADERS_APPLE_H_
 
 #include <stdbool.h>
+#include <time.h>
 
 typedef struct apple apple;
 
@@ -22,7 +23,8 @@ struct apple {
 
 apple *generate_apple();
 
-bool collides(apple *a);
+bool collides(int x, int y);
+bool same_coord(apple *a, int x, int y);
 
 void destroy_apple(apple *a);
 

@@ -3,6 +3,7 @@
  *
  *  Created on: Jun 7, 2021
  *      Author: Daniel
+ *  Description:
  */
 #include "../headers/apple.h"
 #include "../headers/arena.h"
@@ -17,29 +18,33 @@ apple *generate_apple(void)
 
     srand(time(NULL));
 
-    int xCap = A_WIDTH - 2;
-    int yCap = A_HEIGHT - 2;
+    int xCap = A_HEIGHT - 2;
+    int yCap = A_WIDTH - 2;
 
-
-    a->x = rand() % xCap;
-    a->y = rand() % yCap;
-
-    // Generate new coordinates if apple collides with anything
-    while (collides(a)) {
-        a->x = rand() % xCap;
-        a->y = rand() % yCap;
+    int x = rand() % xCap;
+    int y = rand() % yCap;
+    /*
+     * Generate new coordinates until there are no collisions
+     * or duplicate coordinates.
+     */
+    while (collides(x, y) || same_coord(a, x, y)) {
+        x = rand() % xCap;
+        y = rand() % yCap;
     }
+
+    a->x = x;
+    a->y = y;
 
     return a;
 }
 
 /*
- * Check if current coordinates of the apple is colliding with anything in the arena.
+ * Check if the arena is populated in the given coordinates.
  */
 
-bool collides(apple *a)
+bool collides(int x, int y)
 {
-    if (Arena[a->x][a->y] != ' ')
+    if (Arena[x][y] == ' ')
     {
         return false;
     }
@@ -48,6 +53,27 @@ bool collides(apple *a)
         return true;
     }
 }
+
+/*
+ * Check if the new coordinates match the previous coordinates
+ */
+bool same_coord(apple *a, int x, int y)
+{
+    if (a == NULL)
+    {
+        return false;
+    }
+
+    if (a->x == x && a->y == y)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 
 /*
  * Destroy apple

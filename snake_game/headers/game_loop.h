@@ -3,8 +3,6 @@
  *
  *  Created on: Apr 30, 2021
  *      Author: dcalvo
- *
- *
  */
 
 #ifndef GAME_LOOP_H_
@@ -17,6 +15,8 @@
 #define DELAY 60
 
 typedef unsigned long DWORD, *PDWORD, *LPDWORD;
+
+apple *a;
 
 int screen_row, screen_col;             // Stores dimensions of stdscr
 

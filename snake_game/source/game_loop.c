@@ -18,8 +18,8 @@ int main(void)
 
     create_arena();
     snake *s = new_snake(screen_row / 2, screen_col / 2, KEY_RIGHT);
-    apple *a = NULL;
-    update_arena(s, a);
+    grow_snake(s);
+    grow_snake(s);
     a = generate_apple();
     update_arena(s, a);
 
@@ -61,8 +61,6 @@ void initialize_game(void)
 
     // Get terminal dimensions
     getmaxyx(stdscr, screen_row, screen_col);
-
-
 }
 
 /*
@@ -99,6 +97,7 @@ void update_game(int input, snake *s, apple *a)
 {
     create_arena();
 
+    // No key press
     if (input == ERR)
     {
         snake_forward(s);
@@ -107,10 +106,11 @@ void update_game(int input, snake *s, apple *a)
     {
         change_snake_direction(s, input);
     }
-
+    // Snake eats apple
     if (snake_on_apple(s, a))
     {
         grow_snake(s);
+        destroy_apple(a);
         a = generate_apple();
     }
 

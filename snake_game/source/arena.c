@@ -3,8 +3,8 @@
  *
  *  Created on: May 5, 2021
  *      Author: dcalvo
- * Description: Defines the game arena. Populates the arena with borders
- *              and draws the snake as theg ame progresses.
+ *  Description: Defines the game arena. Populates the arena with borders
+ *              and draws the snake as the game progresses.
  */
 
 #include "../headers/arena.h"
@@ -22,11 +22,11 @@ void create_arena(void)
         {
             if (i == 0 || i == (A_HEIGHT - 1))
             {
-                Arena[i][j] = 'D';
+                Arena[i][j] = '-';
             }
             else if (j == 0 || j == (A_WIDTH - 1))
             {
-                Arena[i][j] = 'D';
+                Arena[i][j] = '|';
             }
             else
             {
@@ -80,9 +80,10 @@ void update_arena(snake *s, apple *a)
 
         p = p->next;
     }
+
     if (a != NULL)
     {
-        Arena[(int)a->x][(int)a->y] = '@';
+        Arena[a->x][a->y] = '@';
     }
 }
 
