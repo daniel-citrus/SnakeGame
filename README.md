@@ -11,7 +11,7 @@
   
 ### New arena and snake movement:  
 > ![](https://i.gyazo.com/257cd6934a3d632a93a4aea25b93013d.gif)  
-> The movement feels a little bit clunky and the snake will move once after every directional key press.
+> The movement feels a little bit clunky and the snake will only move once after every directional key press.
 
 ### Addition of the Curses library:  
 > ![](https://i.gyazo.com/aaf138ec6463615af6cb9418bf5bc426.gif)  
