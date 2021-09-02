@@ -23,4 +23,4 @@
 
 ### Fully functional apples have been created:  
 > ![](https://i.gyazo.com/a57b3f992313b95af12c1c0f12123f3a.gif)
-> A single apple will spawn at random coordinates in the arena. The apple will always spawn two blocks from the arena borders because it is sometimes difficult to perceive the distance between the snake and arena border.  
+> A single apple will spawn at random coordinates in the arena. The apple will always spawn two blocks from the arena border because it is sometimes difficult to perceive the distance between the snake and arena border.  
