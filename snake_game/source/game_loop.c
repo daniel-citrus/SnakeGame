@@ -9,7 +9,7 @@
 #include "../headers/arena.h"
 #include "../headers/user_input.h"
 #include "../headers/apple.h"
-
+/*
 int main(void)
 {
     int input;
@@ -37,6 +37,7 @@ int main(void)
         display_game();
     }
 }
+*/
 
 /*
  *  Update the screen
@@ -106,6 +107,7 @@ void update_game(int input, snake *s, apple *a)
     {
         change_snake_direction(s, input);
     }
+
     // Snake eats apple
     if (snake_on_apple(s, a))
     {

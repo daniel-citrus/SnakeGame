@@ -23,10 +23,8 @@ apple *generate_apple(void)
 
     int x = rand() % xCap;
     int y = rand() % yCap;
-    /*
-     * Generate new coordinates until there are no collisions
-     * or duplicate coordinates.
-     */
+
+    // Generate new coordinates until there are no collisions or duplicate coordinates.
     while (collides(x, y) || same_coord(a, x, y)) {
         x = rand() % xCap;
         y = rand() % yCap;
@@ -41,7 +39,6 @@ apple *generate_apple(void)
 /*
  * Check if the arena is populated in the given coordinates.
  */
-
 bool collides(int x, int y)
 {
     if (Arena[x][y] == ' ')

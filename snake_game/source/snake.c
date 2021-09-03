@@ -4,7 +4,6 @@
  *  Created on: Apr 20, 2021
  *      Author: dcalvo
  */
-#include <curses.h>
 #include "../headers/snake.h"
 
 snake *new_snake(int x, int y, char d)
@@ -149,7 +148,8 @@ void grow_snake(snake *s)
 }
 
 /*
- * Update the snake's entire body, starting with the head node to the tail.
+ * Update the snake's entire body by moving the head forward to coordinate [x][y]
+ * followed by updating the rest of the body.
  */
 void update_snake(node *s, int x, int y)
 {
