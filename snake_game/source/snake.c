@@ -57,6 +57,18 @@ bool snake_on_apple(snake *s, apple *a)
 }
 
 /*
+ * Returns true if the snake runs into itself
+
+bool snake_on_self(snake *s)
+{
+    int x = s->head->x;
+    int y = s->head->y;
+
+
+}
+/*
+
+/*
  * Update the snake's direction and increment the snake's individual body coordinates
  * according to the direction. This function also checks for invalid inputs (ie. User input is DOWN
  * while snake is going UP) so they can be ignored.

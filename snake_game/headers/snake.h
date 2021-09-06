@@ -8,6 +8,7 @@
 #ifndef SNAKE_H_
 #define SNAKE_H_
 
+#include <curses.h>
 #include <stdbool.h>
 #include "apple.h"
 #include "linked_list.h"
@@ -26,6 +27,7 @@ snake *new_snake(int x, int y, char d);             // Generate new snake at giv
 
 bool same_direction(snake *s, int input);           // Returns true if the input provided is in the same direction as the snake's current direction
 bool snake_on_apple(snake *s, apple *a);            // Returns true if snake head is on top of an apple
+//bool snake_on_self(snake *s);                       // Returns true if the snake runs into itself
 
 void change_snake_direction(snake* s, int d);       // Receive user input to change snake direction
 void destroy_snake(snake **s);                      // Free all of the snake pieces
