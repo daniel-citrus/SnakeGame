@@ -3,7 +3,7 @@
 
 ### The first snake:  
 > ![image](https://user-images.githubusercontent.com/56971161/115440100-39c7f600-a1c4-11eb-8ef0-8f3e4b17caba.png)  
-> I have decided to use a linked list to store the snake. A normal array would probably be more efficient, but what's the fun in that?  
+> I have decided to use a linked list to store the snake. A normal array would probably be more efficient, but I thought it would be more fun to use a linked list.
   
 ### User input can be received:  
 > ![image](https://user-images.githubusercontent.com/56971161/116749477-dacd6280-a9b5-11eb-949f-b446b3255688.png)  
