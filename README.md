@@ -15,7 +15,7 @@
 
 ### Addition of the Curses library:  
 > ![](https://i.gyazo.com/aaf138ec6463615af6cb9418bf5bc426.gif)  
-> Discovering the Curses library was a total lifesaver. It is easier to receive the user input, display the game, tweak game speed, etc. 
+> Implemented Curses library to receive the user input, display the game, tweak game speed, etc. 
 
 ### Pause feature / Snake movement update:  
 > ![](https://i.gyazo.com/c659a263532e68554ae4f5242f1330de.gif)  
